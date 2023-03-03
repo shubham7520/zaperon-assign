@@ -1,0 +1,33 @@
+/* .signup-Container>TextField{
+    
+} */
+.sign-btn{
+    display: flex;
+    justify-content: center;
+    line-height: 0;
+}
+.sign-btn>button{
+    color: white;
+    width: 97%;
+    padding: 2.5%;
+    margin: 4% 0 0%;
+}
+.already-btn{
+    margin: 5% 1.5%;
+    float: left;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.link{
+    cursor: pointer;
+    color: rgb(25, 118, 210);
+    text-decoration: none;
+}
+
+.home-Container{
+    font-size:3rem;
+    font-weight: 600;
+}
+.home-Container>p>span{
+    color: #0B3558;
+
+}
