@@ -23,16 +23,29 @@ const Register = async (req, res, next) => {
 
         const token = await user.getJWTToken();
 
-        const option = {
-            expire: new Date(Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
-            httpOnly: true
-        }
+        // const option = {
 
-        res.status(200).cookie("token", token, option).json({
-            success: true,
-            user,
-            token
-        })
+        //     httpOnly: true,
+        //     sameSite: "None",
+        //     secure: true,
+        //     maxAge: 10,
+
+        // }
+
+        res.cookie("jwt", "refreshToken", {
+            httpOnly: true,
+            sameSite: "None",
+            secure: true,
+            // expires: new Date(Date.now() + 10 * 1000),
+            maxAge: 10 * 1000
+        });
+
+        // res.status(200).cookie("token", token, option).json({
+        //     success: true,
+        //     user,
+        //     token
+        // })
+        res.send("bchdsbcvued");
 
     } catch (error) {
 
@@ -46,6 +59,7 @@ const Register = async (req, res, next) => {
 
 const Login = async (req, res, next) => {
     try {
+        console.log("dnejfiejwn")
         if (!req.body.email || !req.body.password) {
             return res.status(400).json({
                 success: false,
@@ -71,9 +85,11 @@ const Login = async (req, res, next) => {
             })
         }
         const Token = await user.getJWTToken();
+        console.log(token);
 
         const option = {
-            expire: new Date(Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
+            expires: new Date(Date.now() + process.env.COOKIE_EXPIRE * 1000),
+            // maxAge: 10 * 1000,
             httpOnly: true
         }
 

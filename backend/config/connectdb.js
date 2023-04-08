@@ -22,6 +22,7 @@ const dbConnect = () => {
 
     mongoose.connection.on("disconnected", () => {
         console.log("Disconnected from Mongoose server");
+
     });
 };
 

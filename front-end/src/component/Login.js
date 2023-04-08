@@ -6,7 +6,8 @@ import { Button } from '@mui/material';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import Card from '@mui/material/Card';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from "axios"
+import axios from "axios";
+import api from '../api/Index';
 
 
 
@@ -18,11 +19,11 @@ export default function Login() {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        await axios.post(`/api/v1/login`, { email, password }, {
+
+        await axios.post(`http://localhost:8000/api/v1/login`, { email, password }, {
             headers: {
                 "Content-Type": "application/json"
             }
-
         }).then(response => {
 
             navigate("/")
@@ -33,6 +34,7 @@ export default function Login() {
             component="form" className='signup-Container'
             sx={{ '& .MuiTextField-root': { m: 1, width: '45ch', marginTop: 2, }, }} autoComplete="off" >
             <Card style={{ padding: 16, textAlign: 'center', boxShadow: 'none' }} >
+
                 <PersonOutlinedIcon style={{ fontSize: '100px', backgroundColor: "RGB(239, 239, 239)", borderRadius: "50% ", color: "RGB(0, 63, 185)", padding: "20px" }} />
                 <div style={{ lineHeight: .4, color: "RGB(11, 53, 88)" }}>
                     <h1 style={{ margin: "30px" }}>Welcome!</h1>

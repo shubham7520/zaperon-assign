@@ -7,7 +7,7 @@ const Home = () => {
     const navigate = useNavigate()
     const [user, setUser] = useState()
     const getUser = async () => {
-        await axios.get(`/api/v1/home`, {
+        await axios.get(`http://localhost:8000/api/v1/home`, {
             headers: {
                 "Content-Type": "application/json"
             }
